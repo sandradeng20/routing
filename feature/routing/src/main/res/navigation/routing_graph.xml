@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/map_routing"
-    app:startDestination="@id/map">
+    app:startDestination="@id/routing_fragment">
     <fragment
-        android:id="@+id/map"
+        android:id="@+id/routing_fragment"
         android:name="uk.ac.cam.cares.jps.routing.RoutingFragment"
         android:label="@string/map"
         tools:layout="@layout/fragment_map">
