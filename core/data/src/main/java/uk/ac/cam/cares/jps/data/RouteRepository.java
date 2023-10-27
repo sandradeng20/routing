@@ -4,6 +4,8 @@ import org.apache.log4j.Logger;
 
 import io.reactivex.Completable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.exceptions.UndeliverableException;
+import io.reactivex.plugins.RxJavaPlugins;
 import uk.ac.cam.cares.jps.network.route.RouteNetworkSource;
 import uk.ac.cam.cares.jps.network.route.VertexNetworkSource;
 
@@ -20,6 +22,16 @@ public class RouteRepository {
     }
 
     public void getRouteGeoJsonUrl(double startLng, double startLat, double endLng, double endLat, RepositoryCallback<String> callback) {
+        RxJavaPlugins.setErrorHandler(throwable -> {
+            if (throwable instanceof UndeliverableException) {
+                LOGGER.info("Both network call failed. Ignore this RxJava exception.");
+            } else {
+                if (Thread.currentThread().getUncaughtExceptionHandler() != null) {
+                    Thread.currentThread().getUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), throwable);
+                }
+            }
+        });
+
         Completable startPointNetworkCall = Completable.create(emitter -> vertexNetworkSource.getVertexId(startLng, startLat,
                 vertexId -> {
                     startPointId = vertexId;
