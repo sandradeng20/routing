@@ -40,6 +40,7 @@ import java.util.Objects;
 import dagger.hilt.android.AndroidEntryPoint;
 import uk.ac.cam.cares.jps.routing.databinding.FragmentMapBinding;
 
+
 @AndroidEntryPoint
 public class RoutingFragment extends Fragment {
     private Logger LOGGER = Logger.getLogger(RoutingFragment.class);
@@ -53,7 +54,8 @@ public class RoutingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentMapBinding.inflate(inflater);
-        mapView = binding.mapView;
+//        var nameInput = findViewById(R.id.nameInput
+        mapView  = binding.getRoot().findViewById(R.id.mapView);
         mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS);
         viewModel = new ViewModelProvider(requireActivity()).get(RoutingViewModel.class);
         return binding.getRoot();

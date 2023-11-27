@@ -2,7 +2,7 @@
 
 <com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/app_bar"
+    class="@+id/app_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:theme="@style/Theme.AppTheme.AppBarOverlay"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <ImageButton
-            android:id="@+id/back_bt"
+            class="@+id/back_bt"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginStart="@dimen/appbar_padding"
@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/instance_title"
+            class="@+id/instance_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"

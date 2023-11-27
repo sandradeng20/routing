@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'uk.ac.cam.cares.jps.routing'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "uk.ac.cam.cares.jps.routing"
         minSdk 26
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -45,7 +45,7 @@ kotlin {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -62,12 +62,12 @@ dependencies {
         }
     }
 
-    def nav_version = "2.6.0"
+    def nav_version = '2.7.5'
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
-    implementation "com.google.dagger:hilt-android:2.44"
-    kapt "com.google.dagger:hilt-compiler:2.44"
+    implementation 'com.google.dagger:hilt-android:2.48.1'
+    kapt 'com.google.dagger:hilt-compiler:2.48.1'
 
     implementation project(path: ':core:ui')
     implementation project(path: ':feature:locationtracking')

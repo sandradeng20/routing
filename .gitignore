@@ -13,5 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea
 
 /core/utils/res/values/developer-config.xml

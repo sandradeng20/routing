@@ -79,7 +79,8 @@ public class MapFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentLocationTrackingBinding.inflate(inflater);
-        mapView = binding.mapView;
+
+        mapView = binding.getRoot().findViewById(R.id.mapView);
 
         requestLocationPermission();
 
@@ -141,8 +142,8 @@ public class MapFragment extends Fragment {
             locationComponentSettings.setEnabled(true);
             locationComponentSettings.setLocationPuck(new LocationPuck2D(null,
                     AppCompatResources.getDrawable(requireContext(), R.drawable.mapbox_user_puck_icon),
-                    AppCompatResources.getDrawable(requireContext(), R.drawable.mapbox_user_icon_shadow),
-                    builder.build().toJson()));
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.mapbox_user_icon_shadow)
+                    ));
             return null;
         });
 
